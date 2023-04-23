@@ -1,4 +1,6 @@
 .App {
   font-family: sans-serif;
-  text-align: center;
+}
+.navLink{
+  padding: 0 10px;
 }
