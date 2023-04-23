@@ -46,9 +46,20 @@ export const MenuProvider = ({children}) =>{
 
     const newMenu = [...menu]
 
+    // alternate approach without using every
+    // const filteredCheckBox = checkboxInput.length > 0 ? 
+    //     newMenu.filter((item)=> checkboxInput.every(checkbox => item[checkbox])) : 
+    //         newMenu; 
+
     const filteredCheckBox = checkboxInput.length > 0 ? 
-        newMenu.filter((item)=> checkboxInput.every(checkbox => item[checkbox])) : 
-            newMenu; 
+        ( newMenu.filter((item)=> {
+            for( let i=0; i<checkboxInput.length; i++){
+                if( item[checkboxInput[i]] )
+                    return true;
+            }
+            return false;
+        }) ) :
+            newMenu;
 
     const filteredSearch = searchInput ? 
         filteredCheckBox.filter(({name})=> name.toLowerCase().includes(searchInput.toLowerCase())) : 
