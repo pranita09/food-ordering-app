@@ -58,7 +58,6 @@ export const MenuProvider = ({children}) =>{
         filteredSearch.sort((item1, item2) => radioInput === 'lowtohigh' ? item1.price - item2.price : item2.price - item1.price) : 
             filteredSearch;
 
-
     return(
         <MenuContext.Provider value={{ isLoading, searchInput, handleSearch, handleCheckBox, handleSortRadioBtn, filteredSort}}>
             {children}

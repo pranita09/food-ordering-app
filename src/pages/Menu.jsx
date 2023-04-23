@@ -31,12 +31,14 @@ const Menu = () =>{
                             <label>
                                 <input 
                                     type='radio'
+                                    name='sortRadio'
                                     onChange={()=> handleSortRadioBtn('lowtohigh')}
                                     /> Sort(price) Low to High
                             </label>
                             <label>
                                 <input 
                                     type='radio'
+                                    name='sortRadio'
                                     onChange={()=>handleSortRadioBtn('hightolow')}
                                     /> Sort(price) High to Low
                             </label>
