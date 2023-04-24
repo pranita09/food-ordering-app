@@ -11,6 +11,8 @@ export const MenuProvider = ({children}) =>{
     const [checkboxInput, setCheckBoxInput] = useState([]);
     const [radioInput, setRadioInput] = useState(null);
 
+    const [state, setState] = useState({});
+
     const getMenuData = async() =>{
         setIsLoading(true);
         try {
@@ -46,20 +48,20 @@ export const MenuProvider = ({children}) =>{
 
     const newMenu = [...menu]
 
-    // alternate approach with using every
-    // const filteredCheckBox = checkboxInput.length > 0 ? 
-    //     newMenu.filter((item)=> checkboxInput.every(checkbox => item[checkbox])) : 
-    //         newMenu; 
-
     const filteredCheckBox = checkboxInput.length > 0 ? 
-        ( newMenu.filter((item)=> {
-            for( let i=0; i<checkboxInput.length; i++){
-                if( item[checkboxInput[i]] )
-                    return true;
-            }
-            return false;
-        }) ) :
-            newMenu;
+        newMenu.filter((item)=> checkboxInput.every(checkbox => item[checkbox])) : 
+            newMenu; 
+
+    //  not working accurately
+    // const filteredCheckBox = checkboxInput.length > 0 ? 
+    //     ( newMenu.filter((item)=> {
+    //         for( let i=0; i<checkboxInput.length; i++){
+    //             if( item[checkboxInput[i]] ) //
+    //                 return true;
+    //         }
+    //         return false;
+    //     }) ) :
+    //         newMenu;
 
     const filteredSearch = searchInput ? 
         filteredCheckBox.filter(({name})=> name.toLowerCase().includes(searchInput.toLowerCase())) : 
