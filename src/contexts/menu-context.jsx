@@ -46,7 +46,7 @@ export const MenuProvider = ({children}) =>{
 
     const newMenu = [...menu]
 
-    // alternate approach without using every
+    // alternate approach with using every
     // const filteredCheckBox = checkboxInput.length > 0 ? 
     //     newMenu.filter((item)=> checkboxInput.every(checkbox => item[checkbox])) : 
     //         newMenu; 
